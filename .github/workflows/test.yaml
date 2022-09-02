@@ -1,0 +1,18 @@
+
+
+name: Tests
+
+on: pull_request
+
+jobs:
+  windows:
+    runs-on: windows
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Run tests
+        shell: cmd
+        run: |
+          python test.py --param1 'C:\Users\test' --param2 "C:\Users\test" --param3 ^"a b c^"
